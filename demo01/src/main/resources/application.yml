@@ -1,0 +1,19 @@
+spring:
+ application:
+   name: demo01
+ datasource:
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   url: jdbc:mysql://localhost:3306/mydemo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowMultiQueries=true
+   username: root
+   password:
+mybatis:
+  configuration:
+   map-underscore-to-camel-case: true
+  mapper-locations: mapper/**.xml
+logging:
+  level:
+   com.cqeec.demo01.mapper: debug
+
+#?????
+server:
+ port: 8888
