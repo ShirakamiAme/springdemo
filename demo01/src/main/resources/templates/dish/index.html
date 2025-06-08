@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+</head>
+<body>
+<table class="table table-dark">
+    <tr>
+        <th>菜名</th>
+        <th>分类名称</th>
+        <th>价格</th>
+        <th>状态</th>
+        <th>创建时间</th>
+        <th>更新时间</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="dish:${page.list}">
+        <td th:text="${dish.name}"></td>
+        <td th:text="${dish.categoryName}"></td>
+        <td th:text="${dish.price}"></td>
+        <td th:text="${dish.status}==0?'停售':'起售'"></td>
+        <td th:text="${dish.createTime}.toString()"></td>
+        <td th:text="${dish.updateTime}"></td>
+        <td>
+            <a th:href="@{/}"  class="btn btn-primary" th:text="${dish.status}==1?'停售':'起售'"></a>
+            <a th:href="@{/updateById/}+${dish.id}" class="btn btn-success">修改</a>
+            <a th:href="@{/}" class="btn btn-danger">删除</a>
+        </td>
+    </tr>
+</table>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" th:href="@{/dish/list/1}">首页</a>
+        </li>
+        <li class="page-item" th:if="${page.current}>1">
+            <a class="page-link" th:href="@{/dish/list/}+(${page.current}-1)">上一页</a>
+        </li>
+
+        <li class="page-item"  disabled>
+            <a class="page-link"  th:text="${page.current}"></a>
+        </li>
+        <li class="page-item" th:if="(${page.current}*3)<${page.total}">
+            <a class="page-link" th:href="@{/dish/list/}+(${page.current}+1)">下一页</a>
+        </li>
+        <li class="page-item" >
+            <!--                13 3 5 -->
+            <a class="page-link" th:href="@{/dish/list/}+${page.end}">末页</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
