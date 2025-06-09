@@ -8,24 +8,9 @@
         <version>3.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cqeec</groupId>
+    <groupId>io.github.shirakamiame</groupId>
     <artifactId>demo01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo01</name>
-    <description>demo01</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -72,6 +57,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>io.github.shirakamiame.SpringDemoApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
