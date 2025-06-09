@@ -39,8 +39,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/spring-demo-${{ env.PROJECT_VERSION }}.jar
-        asset_name: spring-demo-${{ env.PROJECT_VERSION }}.jar
+        asset_path: target/demo01-${{ env.PROJECT_VERSION }}.jar
+        asset_name: demo01-${{ env.PROJECT_VERSION }}.jar
         asset_content_type: application/java-archive
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
